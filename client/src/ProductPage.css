@@ -1,0 +1,8 @@
+/* ProductPage.css */
+.product-container {
+    min-height: 400px; /* Adjust the value as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

@@ -1,13 +1,30 @@
-/* Catalog.css or a separate CSS file */
-.card-container {
+/* Catalog.css */
+.catalog-container {
   display: flex;
-  flex-direction: column; /* Display cards in a single column */
-  align-items: center; /* Center cards horizontally */
-  gap: 20px; /* Add spacing between cards */
+  justify-content: center; /* Center items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  gap: 20px; /* Add spacing between items */
+  padding: 20px; /* Add padding to the container */
+  text-align: center; /* Center the content inside the container */
 }
 
-.card {
+.catalog-card {
+  display: flex;
+  flex-direction: column; /* Display card content in a column */
   max-width: 300px; /* Limit card width */
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Make sure cards take up the full width */
+}
+
+.image-container {
+  width: 100%;
+  padding-bottom: 100%; /* 1:1 aspect ratio */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.catalog-button {
+  margin-top: auto; /* Push the button to the bottom of the card */
 }

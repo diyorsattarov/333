@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import the Link component
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container'; // Import Container component
+import './Catalog.css'; // Import your custom CSS
 
 
 function Catalog() {
@@ -21,25 +22,54 @@ function Catalog() {
     { id: 10, name: 'Item 10', description: 'Description for Item 10', imageUrl: '/images/product1.jpg' },
   ];
 
+  const [columns, setColumns] = useState(3); // Default: 3 columns
+  
+   // Calculate the number of columns based on window width
+   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setColumns(3); // 3 columns for larger screens
+      } else if (window.innerWidth >= 768) {
+        setColumns(2); // 2 columns for medium screens
+      } else {
+        setColumns(1); // 1 column for smaller screens
+      }
+    };
+
+    // Add event listener to handle window resize
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call it once on initial render
+
+    // Clean up the event listener on unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const catalogContainerStyle = {
+    display: 'flex',
+    justifyContent: 'center', // Always center horizontally
+    alignItems: 'center',
+    minHeight: 'calc(100vh - 100px)', // Adjust the value based on your layout
+  };
+
   return (
-    <div>
-      <h2>Catalog</h2>
-      <Container>
-        <Row xs={1} md={2} lg={3} className="g-4">
+    <div style={catalogContainerStyle}>
+      <Container fluid>
+        <h2>Catalog</h2>
+        <Row xs={1} md={2} lg={columns} className="g-4">
           {items.map(item => (
             <Col key={item.id}>
-              <Card style={{ width: '18rem', height: '100%' }} className="mb-4 d-flex flex-column">
-                <Card.Img
-                  variant="top"
-                  src={process.env.PUBLIC_URL + item.imageUrl}
-                  alt={`Image for ${item.name}`}
-                  style={{ objectFit: 'contain', flex: '1' }}
-                />
-                <Card.Body style={{ flex: '1' }}>
+              <Card className="catalog-card">
+                <div
+                  className="image-container"
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL + item.imageUrl})` }}
+                ></div>
+                <Card.Body>
                   <Card.Title>{item.name}</Card.Title>
                   <Card.Text>{item.description}</Card.Text>
                   <Link to={`/product/${item.id}`} className="stretched-link">
-                    <Button variant="primary">Go to Product</Button>
+                    <Button className="catalog-button" variant="primary">
+                      Go to Product
+                    </Button>
                   </Link>
                 </Card.Body>
               </Card>
@@ -50,4 +80,6 @@ function Catalog() {
     </div>
   );
 }
+
 export default Catalog;
+
