@@ -50,5 +50,5 @@ Click on a product to view its details in the Product Page section.
 Contributing
 Contributions are welcome! Feel free to fork this repository, make changes, and submit a pull request.
 
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
