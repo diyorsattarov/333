@@ -24,8 +24,7 @@ function Catalog() {
 
   const [columns, setColumns] = useState(3); // Default: 3 columns
   
-   // Calculate the number of columns based on window width
-   useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 992) {
         setColumns(3); // 3 columns for larger screens
@@ -46,9 +45,9 @@ function Catalog() {
 
   const catalogContainerStyle = {
     display: 'flex',
-    justifyContent: 'center', // Always center horizontally
+    justifyContent: 'center',
     alignItems: 'center',
-    minHeight: 'calc(100vh - 100px)', // Adjust the value based on your layout
+    minHeight: 'calc(100vh - 100px)',
   };
 
   return (
@@ -82,4 +81,3 @@ function Catalog() {
 }
 
 export default Catalog;
-
