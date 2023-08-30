@@ -1,0 +1,13 @@
+/* Catalog.css or a separate CSS file */
+.card-container {
+  display: flex;
+  flex-direction: column; /* Display cards in a single column */
+  align-items: center; /* Center cards horizontally */
+  gap: 20px; /* Add spacing between cards */
+}
+
+.card {
+  max-width: 300px; /* Limit card width */
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

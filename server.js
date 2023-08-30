@@ -1,7 +1,9 @@
 const express = require('express');
+const path = require('path'); // Import the path module
 const app = express();
-const port = 3000; // You can change this to any port you prefer
+const port = 3001; // You can change this to any port you prefer
 
+app.use(express.static(path.join(__dirname, 'client/build')));
 // Middleware
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
