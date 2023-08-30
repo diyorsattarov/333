@@ -11,7 +11,7 @@ git clone https://github.com/your-username/my-express-app.git
 
 2. Navigate to the project directory:
 ```
-cd express-react-app
+cd my-express-app
 ```
 3. Install server dependencies:
 
