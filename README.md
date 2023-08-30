@@ -6,7 +6,7 @@ Welcome to **My Express App**, a simple web application built using Express.js a
 
 1. Clone this repository to your local machine using:
 ```sh
-git clone https://github.com/your-username/express-react-app.git
+git clone https://github.com/your-username/my-express-app.git
 ```
 
 2. Navigate to the project directory:
