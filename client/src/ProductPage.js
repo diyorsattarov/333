@@ -1,5 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container'; // Import the Container component
 
 function ProductPage() {
   const { id } = useParams();
@@ -25,10 +30,36 @@ function ProductPage() {
   const product = getProductDetails(id);
 
   return (
-    <div>
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-    </div>
+    
+    <Container> {/* Wrap the content in a Container */}
+    <div className="main-content text-center">
+        <div className="filler-text">
+          <h2>Welcome to My Express App!</h2>
+          <p>This is some filler text to showcase content between the NavBar and Footer.</p>
+        </div>
+      </div>
+      <Row>
+        <Col md={6}>
+          <Card>
+            <Card.Img variant="top" src={product.imageUrl} alt={`Image for ${product.name}`} />
+            <Card.Body>
+              <Card.Title>{product.name}</Card.Title>
+              <Card.Text>{product.description}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6}>
+          <Card className="d-flex align-items-center justify-content-center">
+            <Card.Body>
+              <Card.Title className="text-center">Purchase Options</Card.Title>
+              {/* Centered content */}
+              <Button variant="primary">Buy Now</Button>
+              <Button variant="secondary">Add to Cart</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
