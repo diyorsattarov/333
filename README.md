@@ -52,3 +52,35 @@ Contributions are welcome! Feel free to fork this repository, make changes, and 
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## To-Do List
+
+- [ ] **Item Categorization:**
+  - Implement a system to categorize products in the catalog.
+
+- [ ] **Cart System:**
+  - Create a cart system that allows users to add and remove items from their cart.
+
+- [ ] **Integrate Stripe Payment Processing:**
+  - Set up Stripe to handle payment processing for purchases.
+
+- [ ] **Recently Viewed Products:**
+  - Display a list of recently viewed products to enhance user experience.
+
+- [ ] **Header Banner with Deals:**
+  - Design and integrate a header banner showcasing special deals.
+
+- [ ] **Content Banners:**
+  - Add content banners between the catalog and header/footer for promotions or announcements.
+
+- [ ] **Admin Dashboard (Potential):**
+  - Implement an admin dashboard to manage products, categories, and transactions.
+
+- [ ] **Add/Remove Products (Potential):**
+  - Allow administrators to easily add and remove products from the catalog.
+
+- [ ] **Convert Completed Transactions to CSV (Potential):**
+  - Provide functionality to export completed transactions to a CSV format.
+
+- [ ] **Tax Helper (Potential):**
+  - Consider implementing a feature to calculate and display taxes for products.
