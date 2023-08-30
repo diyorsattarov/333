@@ -40,7 +40,7 @@ Navigate to http://localhost:3000 in your web browser to access the app.
 Start the server:
 
 ```
-~/my-express/app node server.js
+~/my-express-app node server.js
 ```
 Navigate to http://localhost:3001 in your web browser to access the app.
 
