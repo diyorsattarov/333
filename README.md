@@ -83,4 +83,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
   - Provide functionality to export completed transactions to a CSV format.
 
 - [ ] **Tax Helper (Potential):**
-  - Consider implementing a feature to calculate and display taxes for products.
+  - 

@@ -10,9 +10,9 @@ function ProductPage() {
   const { id } = useParams();
   
   const items = [
-    { id: 1, name: 'Item 1', description: 'Description for Item 1', imageUrl: '/images/newproduct1.jpg' },
-    { id: 2, name: 'Item 2', description: 'Description for Item 2', imageUrl: '/images/newproduct2.jpg' },
-    { id: 3, name: 'Item 3', description: 'Description for Item 3', imageUrl: '/images/product3.jpg' },
+    { id: 1, name: 'Item 1', description: 'Description for Item 1', imageUrl: '/images/product1.jpg' },
+    { id: 2, name: 'Item 2', description: 'Description for Item 2', imageUrl: '/images/product1.jpg' },
+    { id: 3, name: 'Item 3', description: 'Description for Item 3', imageUrl: '/images/product1.jpg' },
     { id: 4, name: 'Item 4', description: 'Description for Item 4', imageUrl: '/images/product1.jpg' },
     { id: 5, name: 'Item 5', description: 'Description for Item 5', imageUrl: '/images/product1.jpg' },
     { id: 6, name: 'Item 6', description: 'Description for Item 6', imageUrl: '/images/product1.jpg' },
