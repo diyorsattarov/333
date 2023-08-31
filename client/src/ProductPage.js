@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container'; // Import the Container component
+import { loadStripe } from '@stripe/stripe-js'; // Import loadStripe from stripe-js
 
 function ProductPage() {
   const { id } = useParams();
@@ -25,6 +26,34 @@ function ProductPage() {
   // Dummy getProductDetails function that returns product based on ID
   const getProductDetails = (productId) => {
     return items.find(item => item.id === parseInt(productId));
+  };
+
+  const stripePromise = loadStripe('pk_test_51NjyTTLWuSm1CyQDuCaoJMXck6i1Za9cmTFa3h2kMMuvs6qomV07MwqI1hwMJBjjpIrR4NuQ5SXBa2etPQfqUg5i00of5KU9qC');
+
+  const redirectToCheckout = async () => {
+    const product = getProductDetails(id); // Get the product based on the ID
+    const stripe = await stripePromise;
+
+    try {
+      const response = await fetch('http://localhost:3001/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productId: product.id }),
+      });
+
+      const session = await response.json();
+      const result = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (result.error) {
+        console.error(result.error.message);
+      }
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+    }
   };
 
   const product = getProductDetails(id);
@@ -52,9 +81,15 @@ function ProductPage() {
           <Card className="d-flex align-items-center justify-content-center">
             <Card.Body>
               <Card.Title className="text-center">Purchase Options</Card.Title>
-              {/* Centered content */}
-              <Button variant="primary">Buy Now</Button>
-              <Button variant="secondary">Add to Cart</Button>
+              <div className="purchase-options">
+                <Button
+                  className="purchase-button"
+                  variant="primary"
+                  onClick={redirectToCheckout}
+                >
+                  Buy Now
+                </Button>
+              </div>
             </Card.Body>
           </Card>
         </Col>

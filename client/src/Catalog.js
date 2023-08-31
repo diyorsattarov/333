@@ -19,7 +19,6 @@ function Catalog() {
     { id: 7, name: 'Item 7', description: 'Description for Item 7', imageUrl: '/images/product1.jpg' },
     { id: 8, name: 'Item 8', description: 'Description for Item 8', imageUrl: '/images/product1.jpg' },
     { id: 9, name: 'Item 9', description: 'Description for Item 9', imageUrl: '/images/product1.jpg' },
-    { id: 10, name: 'Item 10', description: 'Description for Item 10', imageUrl: '/images/product1.jpg' },
   ];
 
   const [columns, setColumns] = useState(3); // Default: 3 columns
@@ -43,17 +42,10 @@ function Catalog() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const catalogContainerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: 'calc(100vh - 100px)',
-  };
-
   return (
-    <div style={catalogContainerStyle}>
+    <div className="h2-container"> {/* Apply the .h2-container class */}
+      <h2>Catalog</h2>
       <Container fluid>
-        <h2>Catalog</h2>
         <Row xs={1} md={2} lg={columns} className="g-4">
           {items.map(item => (
             <Col key={item.id}>

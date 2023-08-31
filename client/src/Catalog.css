@@ -15,3 +15,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.h2-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+}

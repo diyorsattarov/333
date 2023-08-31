@@ -16,10 +16,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to="/" className="nav-link">Home</Link>
-            <Link to="/linkpage" className="nav-link">Link</Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              {/* Dropdown items */}
-            </NavDropdown>
+            <Link to="/catalog" className="nav-link">Catalog</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
